@@ -1,0 +1,46 @@
+[metadata]
+name = "iparadize"
+version = "0.0.1"
+description = ""
+authors = ["Felipe Paraizo"]
+
+[tool.ruff]
+line-length = 79
+indent-width = 4
+exclude = ["venv", ".venv", "docs", "changes", "bin"]
+
+[tool.ruff.lint]
+preview = true
+unfixable = ["B"]
+select = [
+    "I",
+    "S",
+    "E",
+    "F",
+    "W",
+    "C901",
+]
+ignore = [
+    "ANN401",
+]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+skip-magic-trailing-comma = true
+line-ending = "lf"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "-vv --color=yes"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+omit = ["iparadize/config.py"]
+
+[tool.mypy]
+ignore_missing_imports = true
+packages = "iparadize"
